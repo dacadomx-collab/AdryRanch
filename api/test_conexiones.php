@@ -3,13 +3,9 @@ declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
 
-// Cargar variables del .env de forma segura
-$envPath = __DIR__ . '/../.env';
-if (!file_exists($envPath)) {
-    echo json_code_response('error', 'Archivo .env ausente en la raíz del ecosistema.', 500);
-    exit;
-}
-$env = parse_ini_file($envPath, false, INI_SCANNER_RAW);
+// Cargar variables del .env de forma segura (escaneo multirruta, ver env_loader.php)
+require_once __DIR__ . '/env_loader.php';
+$env = cargarEntornoSeguro();
 
 // Validar Token de Seguridad para evitar ejecuciones externas maliciosas (Mandamiento 14)
 $headers = getallheaders();
@@ -117,8 +113,3 @@ if ($ftpSocket) {
 }
 
 echo json_encode($reporte, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-
-function json_code_response(string $status, string $message, int $code): string {
-    http_response_code($code);
-    return json_encode(['status' => $status, 'message' => $message], JSON_UNESCAPED_UNICODE);
-}

@@ -11,12 +11,40 @@ let sesionActual = { nombre: "", rol: "" };
 document.addEventListener("DOMContentLoaded", function () {
   inicializarLogin();
   inicializarNavegacionModulos();
+  inicializarHamburguesaDashboard();
   inicializarLogout();
   inicializarFormularioTarea();
   inicializarFormularioUsuario();
   inicializarModoIluminacionDashboard();
   verificarSesionExistente();
 });
+
+/* ── Menú hamburguesa exclusivo del Dashboard (mobile-first) ───────────── */
+function inicializarHamburguesaDashboard() {
+  const boton = document.getElementById("botonHamburguesaDashboard");
+  const nav = document.getElementById("navegacionModulos");
+  if (!boton || !nav) return;
+
+  const iconoAbrir = boton.querySelector(".icono-menu-abrir");
+  const iconoCerrar = boton.querySelector(".icono-menu-cerrar");
+
+  function alternarMenu(abrir) {
+    nav.classList.toggle("abierta", abrir);
+    boton.setAttribute("aria-expanded", String(abrir));
+    iconoAbrir.classList.toggle("oculto", abrir);
+    iconoCerrar.classList.toggle("oculto", !abrir);
+  }
+
+  boton.addEventListener("click", function () {
+    alternarMenu(!nav.classList.contains("abierta"));
+  });
+
+  nav.querySelectorAll(".boton-modulo").forEach(function (botonModulo) {
+    botonModulo.addEventListener("click", function () {
+      alternarMenu(false);
+    });
+  });
+}
 
 /* ── Conmutador de Iluminación interno del Dashboard ───────────────────
    Independiente del modo Day/Night del sitio público: clave de
@@ -206,13 +234,13 @@ function renderizarTablaCorredores() {
     const confirmado = corredor.estatusPago === "confirmado";
 
     fila.innerHTML = `
-      <td>${escaparHtml(corredor.nombreCompleto)}</td>
-      <td>${escaparHtml(corredor.telefono)}</td>
-      <td>${escaparHtml(corredor.correo)}</td>
-      <td>${escaparHtml(corredor.paquete)}</td>
-      <td>${corredor.seQuedaAlAfter === "si" ? "Sí" : "No"}</td>
-      <td>${escaparHtml(corredor.referenciaPago || "—")}</td>
-      <td><span class="insignia-estatus ${confirmado ? "confirmado" : "en-revision"}">
+      <td data-label="Nombre">${escaparHtml(corredor.nombreCompleto)}</td>
+      <td data-label="Teléfono">${escaparHtml(corredor.telefono)}</td>
+      <td data-label="Correo">${escaparHtml(corredor.correo)}</td>
+      <td data-label="Paquete">${escaparHtml(corredor.paquete)}</td>
+      <td data-label="After">${corredor.seQuedaAlAfter === "si" ? "Sí" : "No"}</td>
+      <td data-label="Folio">${escaparHtml(corredor.referenciaPago || "—")}</td>
+      <td data-label="Estatus"><span class="insignia-estatus ${confirmado ? "confirmado" : "en-revision"}">
         ${confirmado ? "Asistencia Asegurada" : "Aportación en Revisión"}
       </span></td>
       <td>${confirmado ? "" : `<button class="boton-confirmar-fila" data-id="${corredor.idRegistro}">Confirmar</button>`}</td>
@@ -365,10 +393,10 @@ function renderizarUsuarios(usuarios) {
   usuarios.forEach(function (usuario) {
     const fila = document.createElement("tr");
     fila.innerHTML = `
-      <td>${escaparHtml(usuario.nombre)}</td>
-      <td>${escaparHtml(usuario.email)}</td>
-      <td>${escaparHtml(usuario.rol)}</td>
-      <td>${escaparHtml(usuario.creadoAt)}</td>
+      <td data-label="Nombre">${escaparHtml(usuario.nombre)}</td>
+      <td data-label="Correo">${escaparHtml(usuario.email)}</td>
+      <td data-label="Rol">${escaparHtml(usuario.rol)}</td>
+      <td data-label="Creado">${escaparHtml(usuario.creadoAt)}</td>
     `;
     cuerpo.appendChild(fila);
   });

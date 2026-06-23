@@ -171,52 +171,52 @@
 
       <div class="panel-edicion-anterior">
         <div class="contenido-edicion-anterior">
-          <p>Así vivimos la primera edición del Trail Nocturno La Paz: la palomilla, el desierto y la luna llena como testigos.</p>
+          <p>Así vivimos la primera edición del Trail aDRYrANCH: la palomilla, el desierto y la Playa como testigos.</p>
 
           <div class="estadisticas-edicion">
             <div class="estadistica-item">
               <i class="bi bi-calendar-event"></i>
               <span>Fecha</span>
-              <strong>Noviembre 2025</strong>
+              <strong>14 de junio de 2026</strong>
             </div>
             <div class="estadistica-item">
               <i class="bi bi-clock"></i>
-              <span>Hora</span>
-              <strong>18:00 hrs</strong>
+              <span>Hora de Arranque</span>
+              <strong>6:30 am</strong>
             </div>
             <div class="estadistica-item">
               <i class="bi bi-geo-alt"></i>
               <span>Lugar</span>
-              <strong>[Pendiente de confirmación]</strong>
+              <strong>AdryRanch (GPS Pendiente)</strong>
             </div>
             <div class="estadistica-item">
               <i class="bi bi-signpost-split"></i>
               <span>Ruta</span>
-              <strong>[Pendiente de confirmación]</strong>
+              <strong>Pendiente</strong>
             </div>
             <div class="estadistica-item">
               <i class="bi bi-rulers"></i>
               <span>Kilometraje</span>
-              <strong>15K y 7K</strong>
+              <strong>De 6 a 8 km</strong>
             </div>
             <div class="estadistica-item">
               <i class="bi bi-people"></i>
               <span>Participantes</span>
-              <strong>+200 corredores</strong>
+              <strong>Palomilla de 35 Corredores Trail</strong>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="galeria-arf-grid">
-        <img src="assets/img/FB_IMG_1781149844849.jpg" alt="Trail Nocturno La Paz — primera edición">
-        <img src="assets/img/FB_IMG_1781480390031.jpg" alt="Corredores en la primera edición">
-        <img src="assets/img/FB_IMG_1781563439123.jpg" alt="Ambiente nocturno de la carrera">
-        <img src="assets/img/FB_IMG_1781563572007.jpg" alt="La palomilla en el desierto">
-        <img src="assets/img/FB_IMG_1781564238790.jpg" alt="Corriendo bajo la luna llena">
-        <img src="assets/img/FB_IMG_1781753217060.jpg" alt="Meta de la primera edición">
-        <img src="assets/img/IMG-20260614-WA0005.jpg" alt="Convivencia post carrera">
-        <img src="assets/img/IMG-20260618-WA0027.jpg" alt="Camping de la primera edición">
+      <div id="galeriaEdicionAnterior" class="galeria-arf-grid">
+        <img src="assets/img/FB_IMG_1781149844849.jpg" alt="Trail aDRYrANCH — primera edición" class="foto-lightbox" tabindex="0">
+        <img src="assets/img/FB_IMG_1781480390031.jpg" alt="Corredores en la primera edición" class="foto-lightbox" tabindex="0">
+        <img src="assets/img/FB_IMG_1781563439123.jpg" alt="Ambiente de la carrera" class="foto-lightbox" tabindex="0">
+        <img src="assets/img/FB_IMG_1781563572007.jpg" alt="La palomilla en el desierto" class="foto-lightbox" tabindex="0">
+        <img src="assets/img/FB_IMG_1781564238790.jpg" alt="Corriendo en la Playa" class="foto-lightbox" tabindex="0">
+        <img src="assets/img/FB_IMG_1781753217060.jpg" alt="Meta de la primera edición" class="foto-lightbox" tabindex="0">
+        <img src="assets/img/IMG-20260614-WA0005.jpg" alt="Convivencia post carrera" class="foto-lightbox" tabindex="0">
+        <img src="assets/img/IMG-20260618-WA0027.jpg" alt="Camping de la primera edición" class="foto-lightbox" tabindex="0">
       </div>
     </div>
   </section>
@@ -306,6 +306,14 @@
   <button id="botonVolverArriba" class="boton-top" aria-label="Volver arriba">
     <i class="bi bi-arrow-up-short"></i>
   </button>
+
+  <!-- ══════════════ LIGHTBOX NATIVO (Ediciones Anteriores) ══════════════ -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+    <button id="botonCerrarLightbox" class="boton-cerrar-lightbox" aria-label="Cerrar foto">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <img id="imagenLightbox" src="" alt="">
+  </div>
 
   <script src="js/main.js"></script>
 </body>

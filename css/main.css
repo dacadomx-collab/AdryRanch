@@ -276,7 +276,8 @@ section {
   transform: rotate(15deg);
 }
 
-.boton-modo-iluminacion .oculto {
+.boton-modo-iluminacion .oculto,
+.boton-hamburguesa-dashboard .oculto {
   display: none;
 }
 
@@ -837,13 +838,59 @@ section {
   border: 1px solid rgba(245, 197, 66, 0.2);
   position: relative;
   z-index: 1;
+  cursor: pointer;
   transition: transform var(--transicion-base), z-index var(--transicion-base), box-shadow var(--transicion-base);
 }
 
-.galeria-arf-grid img:hover {
+.galeria-arf-grid img:hover,
+.galeria-arf-grid img:focus-visible {
   transform: scale(1.07);
   z-index: 5;
   box-shadow: var(--sombra-dorada);
+}
+
+/* ── Lightbox nativo (Ediciones Anteriores) ────────────────────────── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(5, 8, 20, 0.92);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 10px;
+  box-shadow: var(--sombra-dorada);
+}
+
+.boton-cerrar-lightbox {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-dorado);
+  background: rgba(5, 8, 20, 0.6);
+  color: var(--color-dorado-brillante);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background var(--transicion-base);
+}
+
+.boton-cerrar-lightbox:hover {
+  background: var(--color-dorado-suave);
 }
 
 /* ── Footer ──────────────────────────────────────────────────────── */

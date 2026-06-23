@@ -13,10 +13,11 @@ declare(strict_types=1);
 
 header("Content-Type: application/json; charset=UTF-8");
 
-$env = parse_ini_file(__DIR__ . '/../.env', false, INI_SCANNER_RAW);
+require_once __DIR__ . '/env_loader.php';
+$env = cargarEntornoSeguro();
 $tokenRecibido = (string)($_GET['token'] ?? '');
 
-if ($env === false || !hash_equals((string)($env['TEST_TOKEN'] ?? ''), $tokenRecibido)) {
+if (!hash_equals((string)($env['TEST_TOKEN'] ?? ''), $tokenRecibido)) {
     http_response_code(403);
     echo json_encode(["estatus" => "error", "mensaje" => "Token de configuración inválido."]);
     exit;

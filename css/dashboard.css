@@ -139,6 +139,26 @@
   font-size: 0.9rem;
 }
 
+/* ── Menú hamburguesa exclusivo del Dashboard (mobile-first) ───────── */
+.boton-hamburguesa-dashboard {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--color-dorado);
+  color: var(--color-dorado-brillante);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background var(--transicion-base);
+}
+
+.boton-hamburguesa-dashboard:hover {
+  background: var(--color-dorado-suave);
+}
+
 .etiqueta-rol {
   padding: 0.2rem 0.7rem;
   border-radius: 50px;
@@ -387,4 +407,135 @@
 .panel-registro-compacto {
   max-width: 480px;
   margin: 0 0 1.8rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE-FIRST — Centro de Control (Directiva Suprema de Usabilidad)
+   Breakpoint único de 800px: por debajo, el nav colapsa detrás del
+   menú hamburguesa, las tablas mutan a tarjetas apiladas y los
+   formularios se apilan para mayor comodidad táctil.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 800px) {
+  .topbar-dashboard {
+    flex-wrap: wrap;
+    row-gap: 0.7rem;
+  }
+
+  .usuario-topbar {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .boton-hamburguesa-dashboard {
+    display: inline-flex;
+  }
+
+  /* Nav colapsable detrás del hamburguesa */
+  .navegacion-modulos {
+    flex-direction: column;
+    align-items: stretch;
+    max-height: 0;
+    padding: 0 1.2rem;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+  }
+
+  .navegacion-modulos.abierta {
+    max-height: 70vh;
+    padding: 1rem 1.2rem;
+    overflow-y: auto;
+  }
+
+  .boton-modulo {
+    width: 100%;
+    justify-content: flex-start;
+    min-height: 46px;
+  }
+
+  /* Formulario de tarea apilado, cómodo para el dedo */
+  .formulario-tarea {
+    flex-direction: column;
+  }
+
+  .formulario-tarea input,
+  .formulario-tarea select,
+  .formulario-tarea button {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  /* Tableros y métricas: una sola columna fluida */
+  .columna-tareas {
+    flex: 1 1 100%;
+  }
+
+  .metrica-rapida {
+    flex: 1 1 calc(50% - 0.5rem);
+  }
+
+  /* Tablas → tarjetas apilables (evita scroll horizontal) */
+  .tabla-responsiva {
+    overflow-x: visible;
+    border: none;
+  }
+
+  .tabla-dashboard {
+    min-width: 0;
+  }
+
+  .tabla-dashboard thead {
+    display: none;
+  }
+
+  .tabla-dashboard,
+  .tabla-dashboard tbody,
+  .tabla-dashboard tr,
+  .tabla-dashboard td {
+    display: block;
+    width: 100%;
+  }
+
+  .tabla-dashboard tr {
+    margin-bottom: 1rem;
+    background: var(--color-azul-medianoche);
+    border: 1px solid rgba(245, 197, 66, 0.15);
+    border-radius: var(--radio-base);
+    overflow: hidden;
+  }
+
+  .tabla-dashboard td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    text-align: right;
+    border-bottom: 1px solid rgba(245, 197, 66, 0.08);
+    min-height: 44px;
+  }
+
+  .tabla-dashboard td:last-child {
+    border-bottom: none;
+  }
+
+  .tabla-dashboard td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    text-align: left;
+    color: var(--color-dorado-brillante);
+    flex-shrink: 0;
+  }
+
+  .tabla-dashboard td:empty::before {
+    content: none;
+  }
+
+  .boton-confirmar-fila {
+    min-height: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .metrica-rapida {
+    flex: 1 1 100%;
+  }
 }

@@ -3,8 +3,11 @@ declare(strict_types=1);
 
 /**
  * Conexión PDO centralizada — AdryRanch
- * Lee credenciales desde .env (Mandamiento 12 — Bóveda de Secretos).
+ * Lee credenciales desde .env (Mandamiento 12 — Bóveda de Secretos),
+ * vía el localizador defensivo multirruta de env_loader.php.
  */
+
+require_once __DIR__ . '/env_loader.php';
 
 class Database {
     private string $host;
@@ -15,7 +18,7 @@ class Database {
     public ?PDO $conn = null;
 
     public function __construct() {
-        $env = $this->loadEnv(__DIR__ . '/../.env');
+        $env = cargarEntornoSeguro();
 
         $this->host = (string)($env['DB_HOST'] ?? 'localhost');
         $this->db_name = (string)($env['DB_NAME'] ?? '');
@@ -30,17 +33,6 @@ class Database {
         http_response_code($httpCode);
         echo json_encode(["status" => "error", "message" => $message]);
         exit;
-    }
-
-    private function loadEnv(string $path): array {
-        if (!is_readable($path)) {
-            $this->jsonError("Error crítico de servidor: Configuración no encontrada.");
-        }
-        $data = parse_ini_file($path, false, INI_SCANNER_RAW);
-        if ($data === false) {
-            $this->jsonError("Error crítico de servidor: Formato de configuración inválido.");
-        }
-        return $data;
     }
 
     private function setCorsHeaders(): void {

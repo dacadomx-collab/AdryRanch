@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   inicializarFormularioRegistro();
   inicializarModoIluminacion();
   inicializarBotonVolverArriba();
+  inicializarLightbox();
 });
 
 /* ── Navbar: cambia de transparente a sólida al hacer scroll ──────── */
@@ -154,5 +155,48 @@ function inicializarBotonVolverArriba() {
 
   boton.addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+/* ── Lightbox nativo (galería de Ediciones Anteriores) ─────────────────── */
+function inicializarLightbox() {
+  const galeria = document.getElementById("galeriaEdicionAnterior");
+  const lightbox = document.getElementById("lightbox");
+  const imagenLightbox = document.getElementById("imagenLightbox");
+  const botonCerrar = document.getElementById("botonCerrarLightbox");
+  if (!galeria || !lightbox || !imagenLightbox || !botonCerrar) return;
+
+  function abrirLightbox(foto) {
+    imagenLightbox.src = foto.src;
+    imagenLightbox.alt = foto.alt;
+    lightbox.hidden = false;
+    botonCerrar.focus();
+  }
+
+  function cerrarLightbox() {
+    lightbox.hidden = true;
+    imagenLightbox.src = "";
+  }
+
+  galeria.querySelectorAll(".foto-lightbox").forEach(function (foto) {
+    foto.addEventListener("click", function () {
+      abrirLightbox(foto);
+    });
+    foto.addEventListener("keydown", function (evento) {
+      if (evento.key === "Enter" || evento.key === " ") {
+        evento.preventDefault();
+        abrirLightbox(foto);
+      }
+    });
+  });
+
+  botonCerrar.addEventListener("click", cerrarLightbox);
+
+  lightbox.addEventListener("click", function (evento) {
+    if (evento.target === lightbox) cerrarLightbox();
+  });
+
+  document.addEventListener("keydown", function (evento) {
+    if (evento.key === "Escape" && !lightbox.hidden) cerrarLightbox();
   });
 }
