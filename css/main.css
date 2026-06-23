@@ -1,0 +1,873 @@
+/* =====================================================================
+   AdryRanch — Trail Nocturno La Paz · Edición Luna Llena
+   main.css — Hoja de estilos institucional (ALISER)
+   Paleta: Azul Oscuro (noche del desierto) + Dorado (Luna Llena)
+   ===================================================================== */
+
+:root {
+  /* Paleta institucional — Noche Mística */
+  --color-azul-noche: #0a1128;
+  --color-azul-noche-deep: #050814;
+  --color-azul-medianoche: #121b3f;
+  --color-dorado: #f5c542;
+  --color-dorado-brillante: #ffd95e;
+  --color-dorado-suave: rgba(245, 197, 66, 0.18);
+  --color-blanco-luna: #f4f1e8;
+  --color-gris-arena: #b9b6ad;
+
+  /* Paleta institucional — Atardecer BCS (calibrada desde logo.jpg) */
+  --color-terracota: #d96b27;
+  --color-atardecer: #e2703a;
+  --color-rojo-ocaso: #b23b22;
+  --color-terracota-suave: rgba(217, 107, 39, 0.18);
+
+  /* Tipografía */
+  --font-titulos: "Cinzel", "Georgia", serif;
+  --font-cuerpo: "Poppins", "Segoe UI", sans-serif;
+
+  /* Layout */
+  --radio-base: 14px;
+  --sombra-dorada: 0 0 30px rgba(245, 197, 66, 0.25);
+  --sombra-atardecer: 0 0 30px rgba(178, 59, 34, 0.35);
+  --transicion-base: 0.3s ease;
+}
+
+/* ── Conmutador de Iluminación — Modo Ocaso/Atardecer BCS ──────────
+   Mandamiento 3 (Modo Oscuro/Tema fluido): redefine las mismas
+   variables sobre <body> para recolorear todo el ecosistema sin
+   tocar la estructura de cada componente. Persistencia en localStorage
+   vía js/main.js. ──────────────────────────────────────────────── */
+body.modo-atardecer {
+  --color-azul-noche: #4a1f12;
+  --color-azul-noche-deep: #2e1209;
+  --color-azul-medianoche: #5c2814;
+  --color-dorado: #d96b27;
+  --color-dorado-brillante: #f08a3c;
+  --color-dorado-suave: rgba(217, 107, 39, 0.2);
+  --color-blanco-luna: #fdf3e7;
+  --color-gris-arena: #d9b99a;
+}
+
+/* ── Reset base ──────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-azul-noche-deep);
+  color: var(--color-blanco-luna);
+  font-family: var(--font-cuerpo);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-titulos);
+  color: var(--color-dorado-brillante);
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+section {
+  padding: clamp(3rem, 8vw, 6rem) 1rem;
+  position: relative;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.titulo-seccion {
+  text-align: center;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo-seccion {
+  text-align: center;
+  color: var(--color-gris-arena);
+  max-width: 640px;
+  margin: 0 auto 2.5rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+}
+
+.fondo-estrellas {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(245, 197, 66, 0.08), transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(193, 80, 46, 0.07), transparent 45%);
+}
+
+/* ── Marca de agua — cráneo de toro / foto difuminada, esquina inferior ── */
+.marca-agua {
+  position: fixed;
+  bottom: -40px;
+  right: -40px;
+  width: min(50vw, 420px);
+  height: min(50vw, 420px);
+  background-image: url("../assets/img/IMG-20260614-WA0006.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  filter: grayscale(0.6) blur(1px);
+  opacity: 0.1;
+  mix-blend-mode: luminosity;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Botones ─────────────────────────────────────────────────────── */
+.boton-dorado {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, var(--color-dorado) 0%, var(--color-dorado-brillante) 100%);
+  color: var(--color-azul-noche-deep);
+  font-weight: 600;
+  border-radius: 50px;
+  border: none;
+  box-shadow: var(--sombra-dorada);
+  transition: transform var(--transicion-base), box-shadow var(--transicion-base);
+  cursor: pointer;
+}
+
+.boton-dorado:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 40px rgba(245, 197, 66, 0.45);
+  color: var(--color-azul-noche-deep);
+}
+
+.boton-contorno {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.9rem;
+  background: transparent;
+  color: var(--color-dorado-brillante);
+  font-weight: 600;
+  border-radius: 50px;
+  border: 1.5px solid var(--color-dorado);
+  transition: background var(--transicion-base), color var(--transicion-base);
+  cursor: pointer;
+}
+
+.boton-contorno:hover {
+  background: var(--color-dorado-suave);
+  color: var(--color-dorado-brillante);
+}
+
+.boton-contorno.deshabilitado {
+  opacity: 0.5;
+  border-color: var(--color-gris-arena);
+  color: var(--color-gris-arena);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Navbar ──────────────────────────────────────────────────────── */
+.navbar-arf {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.9rem 1.25rem;
+  background: rgba(5, 8, 20, 0.35);
+  backdrop-filter: blur(6px);
+  transition: background var(--transicion-base), padding var(--transicion-base);
+}
+
+.navbar-arf.navbar-scroll {
+  background: rgba(5, 8, 20, 0.92);
+  padding: 0.6rem 1.25rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-marca {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.navbar-marca img {
+  height: clamp(56px, 8vw, 78px);
+  width: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(245, 197, 66, 0.35);
+  transition: height var(--transicion-base), transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.navbar-marca:hover img {
+  transform: scale(1.08) rotate(-5deg);
+  box-shadow: 0 0 24px rgba(217, 107, 39, 0.65), 0 0 14px rgba(245, 197, 66, 0.5);
+}
+
+.navbar-scroll .navbar-marca img {
+  height: clamp(46px, 6vw, 60px);
+}
+
+.navbar-marca span {
+  font-family: var(--font-titulos);
+  color: var(--color-dorado-brillante);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  letter-spacing: 0.5px;
+}
+
+.navbar-derecha {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  color: var(--color-blanco-luna);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color var(--transicion-base);
+}
+
+.navbar-links a:hover {
+  color: var(--color-dorado-brillante);
+}
+
+/* ── Conmutador de Iluminación (Day/Night BCS) ─────────────────────── */
+.boton-modo-iluminacion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid var(--color-dorado);
+  color: var(--color-dorado-brillante);
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background var(--transicion-base), transform var(--transicion-base);
+}
+
+.boton-modo-iluminacion:hover {
+  background: var(--color-dorado-suave);
+  transform: rotate(15deg);
+}
+
+.boton-modo-iluminacion .oculto {
+  display: none;
+}
+
+/* ── Botón Volver Arriba (Scroll-to-Top) ───────────────────────────── */
+.boton-top {
+  position: fixed;
+  bottom: 1.6rem;
+  right: 1.6rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, var(--color-terracota), var(--color-rojo-ocaso));
+  color: var(--color-blanco-luna);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  box-shadow: var(--sombra-atardecer);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s;
+}
+
+.boton-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.boton-top:hover {
+  transform: translateY(-3px);
+}
+
+/* ── Hamburguesa ─────────────────────────────────────────────────── */
+.boton-hamburguesa {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.boton-hamburguesa .linea {
+  width: 100%;
+  height: 2px;
+  background: var(--color-dorado-brillante);
+  border-radius: 2px;
+  transition: transform var(--transicion-base), opacity var(--transicion-base);
+}
+
+.boton-hamburguesa.activo .linea:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.boton-hamburguesa.activo .linea:nth-child(2) {
+  opacity: 0;
+}
+
+.boton-hamburguesa.activo .linea:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .boton-hamburguesa {
+    display: flex;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(75vw, 320px);
+    background: var(--color-azul-medianoche);
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform var(--transicion-base);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .navbar-links.abierto {
+    transform: translateX(0);
+  }
+}
+
+/* ── Hero ────────────────────────────────────────────────────────── */
+.hero-trail {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 8, 20, 0.5) 0%, rgba(18, 27, 63, 0.7) 45%, rgba(156, 47, 30, 0.45) 78%, rgba(5, 8, 20, 0.92) 100%);
+  z-index: 1;
+}
+
+.hero-contenido {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.hero-edicion {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border: 1px solid var(--color-dorado);
+  border-radius: 50px;
+  color: var(--color-dorado-brillante);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.hero-contenido h1 {
+  font-size: clamp(2.2rem, 7vw, 4.2rem);
+  line-height: 1.15;
+  text-shadow: 0 0 25px rgba(245, 197, 66, 0.3);
+}
+
+.hero-eslogan {
+  font-family: var(--font-titulos);
+  font-style: italic;
+  color: var(--color-blanco-luna);
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  margin: 1.3rem 0;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 1.5rem 0 2rem;
+  color: var(--color-gris-arena);
+  font-size: 0.95rem;
+}
+
+.hero-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* ── Experiencia Nocturna ───────────────────────────────────────── */
+.tarjetas-experiencia {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.tarjeta-experiencia {
+  flex: 1 1 280px;
+  max-width: 340px;
+  background: var(--color-azul-medianoche);
+  border: 1px solid rgba(245, 197, 66, 0.15);
+  border-top: 3px solid var(--color-terracota);
+  border-radius: var(--radio-base);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform var(--transicion-base), box-shadow var(--transicion-base);
+}
+
+.tarjeta-experiencia:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-atardecer);
+}
+
+.tarjeta-experiencia .icono-experiencia {
+  font-size: 2.4rem;
+  color: var(--color-dorado-brillante);
+  margin-bottom: 1rem;
+}
+
+.tarjeta-experiencia h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.tarjeta-experiencia p {
+  color: var(--color-gris-arena);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* ── Rutas y Kilometrajes ───────────────────────────────────────── */
+.bloque-ruta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.mapa-ruta {
+  flex: 1 1 340px;
+  min-height: 320px;
+  border-radius: var(--radio-base);
+  border: 1px dashed rgba(245, 197, 66, 0.4);
+  background: var(--color-azul-medianoche);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  color: var(--color-gris-arena);
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.mapa-ruta i {
+  font-size: 2.6rem;
+  color: var(--color-dorado-brillante);
+}
+
+.descargas-ruta {
+  flex: 1 1 320px;
+}
+
+.descargas-ruta .botones-descarga {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.etiqueta-proximamente {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--color-gris-arena);
+  margin-top: 0.4rem;
+}
+
+.texto-descarga-ruta {
+  text-align: left;
+  margin: 0.6rem 0 0;
+}
+
+/* ── ARF-GRID: Kit del Corredor ─────────────────────────────────── */
+.arf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.arf-item {
+  flex: 1 1 220px;
+  max-width: 240px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(160deg, var(--color-azul-medianoche), var(--color-azul-noche-deep));
+  border: 1px solid rgba(245, 197, 66, 0.18);
+  border-radius: var(--radio-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.2rem;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+  transition: transform var(--transicion-base), z-index var(--transicion-base), box-shadow var(--transicion-base);
+}
+
+.arf-item:hover {
+  transform: scale(1.06);
+  z-index: 5;
+  box-shadow: var(--sombra-dorada);
+}
+
+.arf-item i {
+  font-size: 2.2rem;
+  color: var(--color-dorado-brillante);
+}
+
+.arf-item h4 {
+  font-size: 1rem;
+}
+
+.arf-item p {
+  color: var(--color-gris-arena);
+  font-size: 0.82rem;
+  margin: 0;
+}
+
+/* ── Formulario de Registro ──────────────────────────────────────── */
+.panel-registro {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--color-azul-medianoche);
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  border-radius: var(--radio-base);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.campo-formulario {
+  margin-bottom: 1.3rem;
+}
+
+.campo-formulario label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--color-gris-arena);
+}
+
+.campo-formulario input,
+.campo-formulario select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--color-azul-noche-deep);
+  border: 1px solid rgba(245, 197, 66, 0.25);
+  border-radius: 8px;
+  color: var(--color-blanco-luna);
+  font-family: var(--font-cuerpo);
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus {
+  outline: none;
+  border-color: var(--color-dorado-brillante);
+  box-shadow: 0 0 0 3px rgba(245, 197, 66, 0.15);
+}
+
+.opciones-after {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.opciones-after label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-blanco-luna);
+  font-size: 0.95rem;
+}
+
+.mensaje-formulario {
+  display: none;
+  font-size: 0.88rem;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.mensaje-formulario.visible {
+  display: block;
+}
+
+.mensaje-formulario.error {
+  background: rgba(193, 80, 46, 0.18);
+  color: var(--color-atardecer);
+  border: 1px solid var(--color-terracota);
+}
+
+.mensaje-formulario.cargando {
+  background: var(--color-dorado-suave);
+  color: var(--color-dorado-brillante);
+  border: 1px solid var(--color-dorado);
+}
+
+.panel-pago {
+  display: none;
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--color-azul-medianoche);
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  border-radius: var(--radio-base);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.panel-pago.visible {
+  display: block;
+}
+
+.datos-spei {
+  text-align: left;
+  background: var(--color-azul-noche-deep);
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.datos-spei p {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(245, 197, 66, 0.1);
+  padding: 0.5rem 0;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.datos-spei p span:first-child {
+  color: var(--color-gris-arena);
+}
+
+.datos-spei p span:last-child {
+  color: var(--color-dorado-brillante);
+  font-weight: 600;
+}
+
+.boton-ancho-completo {
+  width: 100%;
+}
+
+.icono-pago {
+  font-size: 2.4rem;
+  color: var(--color-dorado-brillante);
+}
+
+.aviso-vigencia {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: center;
+  color: var(--color-gris-arena);
+  font-size: 0.88rem;
+  margin-top: 1rem;
+}
+
+/* ── Ediciones Anteriores — efecto atardecer BCS (desierto/mar/noche) ── */
+.panel-edicion-anterior {
+  position: relative;
+  border-radius: var(--radio-base);
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(245, 197, 66, 0.2);
+}
+
+.panel-edicion-anterior::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../assets/img/FB_IMG_1781753210624.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1.1) contrast(1.05);
+  z-index: -2;
+}
+
+.panel-edicion-anterior::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    200deg,
+    rgba(156, 47, 30, 0.55) 0%,
+    rgba(226, 112, 58, 0.45) 28%,
+    rgba(18, 27, 63, 0.75) 65%,
+    rgba(5, 8, 20, 0.92) 100%
+  );
+  z-index: -1;
+}
+
+.contenido-edicion-anterior {
+  position: relative;
+  width: 100%;
+  padding: clamp(1.8rem, 5vw, 3rem);
+}
+
+.contenido-edicion-anterior > p {
+  color: var(--color-blanco-luna);
+  max-width: 520px;
+  margin-bottom: 2rem;
+}
+
+.estadisticas-edicion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.estadistica-item {
+  flex: 1 1 150px;
+  max-width: 200px;
+  background: rgba(5, 8, 20, 0.55);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(245, 197, 66, 0.25);
+  border-radius: 10px;
+  padding: 1.1rem 1rem;
+  text-align: center;
+}
+
+.estadistica-item i {
+  font-size: 1.6rem;
+  color: var(--color-dorado-brillante);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.estadistica-item span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-gris-arena);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.3rem;
+}
+
+.estadistica-item strong {
+  display: block;
+  color: var(--color-blanco-luna);
+  font-size: 0.95rem;
+}
+
+/* ── Galería ARF-Grid — fotos reales de Ediciones Anteriores ─────── */
+.galeria-arf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.8rem;
+}
+
+.galeria-arf-grid img {
+  flex: 1 1 160px;
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  position: relative;
+  z-index: 1;
+  transition: transform var(--transicion-base), z-index var(--transicion-base), box-shadow var(--transicion-base);
+}
+
+.galeria-arf-grid img:hover {
+  transform: scale(1.07);
+  z-index: 5;
+  box-shadow: var(--sombra-dorada);
+}
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+.footer-arf {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--color-gris-arena);
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(245, 197, 66, 0.1);
+}
+
+.footer-arf .redes-footer {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.footer-arf .redes-footer a {
+  color: var(--color-dorado-brillante);
+  transition: opacity var(--transicion-base);
+}
+
+.footer-arf .redes-footer a:hover {
+  opacity: 0.7;
+}

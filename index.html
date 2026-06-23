@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trail Nocturno La Paz — Edición Luna Llena | AdryRanch</title>
+  <meta name="description" content="Corre bajo la luz de la luna, quédate bajo las estrellas. Trail Nocturno La Paz — Edición Luna Llena. Sábado 24 de Octubre de 2026." />
+
+  <!-- Bootstrap 5 (grid responsivo) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="assets/img/craneo-toro.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="assets/img/logo.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <div class="marca-agua" aria-hidden="true"></div>
+
+  <!-- ══════════════ NAVBAR ══════════════ -->
+  <nav class="navbar-arf">
+    <a href="#inicio" class="navbar-marca">
+      <img src="assets/img/logo.jpg" alt="AdryRanch — Trail Nocturno La Paz">
+      <span>AdryRanch</span>
+    </a>
+
+    <div class="navbar-derecha">
+      <ul class="navbar-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#experiencia">Experiencia Nocturna</a></li>
+        <li><a href="#ruta">Ruta</a></li>
+        <li><a href="#kit">Kit del Corredor</a></li>
+        <li><a href="#ediciones-anteriores">Ediciones Anteriores</a></li>
+        <li><a href="dashboard/index.html"><i class="bi bi-lock-fill"></i> Acceso Admin</a></li>
+        <li><a href="#registro" class="boton-dorado">Regístrate</a></li>
+      </ul>
+
+      <button id="botonModoIluminacion" class="boton-modo-iluminacion" aria-label="Cambiar iluminación">
+        <i class="bi bi-sun-fill icono-modo-sol"></i>
+        <i class="bi bi-moon-stars-fill icono-modo-luna oculto"></i>
+      </button>
+
+      <button class="boton-hamburguesa" aria-label="Abrir menú">
+        <span class="linea"></span>
+        <span class="linea"></span>
+        <span class="linea"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <header id="inicio" class="hero-trail">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg">
+      <source src="assets/img/hero-video-optimizado.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-contenido">
+      <span class="hero-edicion"><i class="bi bi-moon-stars-fill"></i> Edición Luna Llena</span>
+      <h1>Trail Nocturno La Paz</h1>
+      <p class="hero-eslogan">"Corre bajo la luz de la luna, quédate bajo las estrellas."</p>
+
+      <div class="hero-meta">
+        <span><i class="bi bi-calendar-event"></i> Sábado 24 de Octubre de 2026</span>
+        <span><i class="bi bi-geo-alt"></i> La Paz, Baja California Sur</span>
+      </div>
+
+      <a href="#registro" class="boton-dorado">
+        <i class="bi bi-rocket-takeoff"></i> Regístrate Ahora
+      </a>
+    </div>
+  </header>
+
+  <!-- ══════════════ EXPERIENCIA NOCTURNA ══════════════ -->
+  <section id="experiencia" class="fondo-estrellas">
+    <div class="contenedor">
+      <h2 class="titulo-seccion">Experiencia Nocturna</h2>
+      <p class="subtitulo-seccion">Una carrera pensada para vivirse en comunidad, bajo el cielo estrellado del desierto paceño.</p>
+
+      <div class="tarjetas-experiencia">
+        <div class="tarjeta-experiencia">
+          <i class="bi bi-lightbulb icono-experiencia"></i>
+          <h3>Estacas Solares</h3>
+          <p>Todo el recorrido iluminado con estacas solares que marcan el sendero bajo la luna llena.</p>
+        </div>
+        <div class="tarjeta-experiencia">
+          <i class="bi bi-house-heart icono-experiencia"></i>
+          <h3>Área de Descanso</h3>
+          <p>Zonas de descanso con mallasombra y banquitas para convivir con la palomilla antes y después de correr.</p>
+        </div>
+        <div class="tarjeta-experiencia">
+          <i class="bi bi-cup-straw icono-experiencia"></i>
+          <h3>Camping y After</h3>
+          <p>Te invitamos a quedarte a acampar bajo las estrellas y cerrar la noche con la cervecita del after.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ RUTAS Y KILOMETRAJES ══════════════ -->
+  <section id="ruta">
+    <div class="contenedor">
+      <h2 class="titulo-seccion">Rutas y Kilometrajes</h2>
+      <p class="subtitulo-seccion">Descarga el track oficial de la ruta y prepárate para recorrer el desierto bajo la luna.</p>
+
+      <div class="bloque-ruta">
+        <div class="mapa-ruta">
+          <i class="bi bi-map"></i>
+          <strong>Mapa de Ruta Oficial</strong>
+          <span>Se publicará próximamente con el kilometraje confirmado.</span>
+        </div>
+
+        <div class="descargas-ruta">
+          <h3>Descarga tu ruta</h3>
+          <p class="texto-descarga-ruta">Track optimizado para llevar en tu reloj o celular durante la carrera.</p>
+          <div class="botones-descarga">
+            <a href="#" class="boton-contorno deshabilitado" aria-disabled="true">
+              <i class="bi bi-apple"></i> Ruta para iPhone
+            </a>
+            <a href="#" class="boton-contorno deshabilitado" aria-disabled="true">
+              <i class="bi bi-android2"></i> Ruta para Android
+            </a>
+          </div>
+          <span class="etiqueta-proximamente">Disponible próximamente.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ KIT DEL CORREDOR (ARF-GRID) ══════════════ -->
+  <section id="kit" class="fondo-estrellas">
+    <div class="contenedor">
+      <h2 class="titulo-seccion">Kit del Corredor</h2>
+      <p class="subtitulo-seccion">Todo lo que recibes al inscribirte a la Edición Luna Llena.</p>
+
+      <div class="arf-grid">
+        <div class="arf-item">
+          <i class="bi bi-123"></i>
+          <h4>Número de Corredor</h4>
+          <p>Tu número oficial para la carrera.</p>
+        </div>
+        <div class="arf-item">
+          <i class="bi bi-droplet-half"></i>
+          <h4>Hidratación en Ruta</h4>
+          <p>Puntos de hidratación a lo largo del recorrido.</p>
+        </div>
+        <div class="arf-item">
+          <i class="bi bi-stars"></i>
+          <h4>Luces de Neón</h4>
+          <p>Luces de regalo para brillar bajo la luna llena.</p>
+        </div>
+        <div class="arf-item">
+          <i class="bi bi-award"></i>
+          <h4>Medalla de Finalista</h4>
+          <p>Medalla conmemorativa al cruzar la meta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ EDICIONES ANTERIORES ══════════════ -->
+  <section id="ediciones-anteriores">
+    <div class="contenedor">
+      <h2 class="titulo-seccion">Ediciones Anteriores</h2>
+      <p class="subtitulo-seccion">La primera noche bajo la luna que le dio origen a esta tradición.</p>
+
+      <div class="panel-edicion-anterior">
+        <div class="contenido-edicion-anterior">
+          <p>Así vivimos la primera edición del Trail Nocturno La Paz: la palomilla, el desierto y la luna llena como testigos.</p>
+
+          <div class="estadisticas-edicion">
+            <div class="estadistica-item">
+              <i class="bi bi-calendar-event"></i>
+              <span>Fecha</span>
+              <strong>Noviembre 2025</strong>
+            </div>
+            <div class="estadistica-item">
+              <i class="bi bi-clock"></i>
+              <span>Hora</span>
+              <strong>18:00 hrs</strong>
+            </div>
+            <div class="estadistica-item">
+              <i class="bi bi-geo-alt"></i>
+              <span>Lugar</span>
+              <strong>[Pendiente de confirmación]</strong>
+            </div>
+            <div class="estadistica-item">
+              <i class="bi bi-signpost-split"></i>
+              <span>Ruta</span>
+              <strong>[Pendiente de confirmación]</strong>
+            </div>
+            <div class="estadistica-item">
+              <i class="bi bi-rulers"></i>
+              <span>Kilometraje</span>
+              <strong>15K y 7K</strong>
+            </div>
+            <div class="estadistica-item">
+              <i class="bi bi-people"></i>
+              <span>Participantes</span>
+              <strong>+200 corredores</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="galeria-arf-grid">
+        <img src="assets/img/FB_IMG_1781149844849.jpg" alt="Trail Nocturno La Paz — primera edición">
+        <img src="assets/img/FB_IMG_1781480390031.jpg" alt="Corredores en la primera edición">
+        <img src="assets/img/FB_IMG_1781563439123.jpg" alt="Ambiente nocturno de la carrera">
+        <img src="assets/img/FB_IMG_1781563572007.jpg" alt="La palomilla en el desierto">
+        <img src="assets/img/FB_IMG_1781564238790.jpg" alt="Corriendo bajo la luna llena">
+        <img src="assets/img/FB_IMG_1781753217060.jpg" alt="Meta de la primera edición">
+        <img src="assets/img/IMG-20260614-WA0005.jpg" alt="Convivencia post carrera">
+        <img src="assets/img/IMG-20260618-WA0027.jpg" alt="Camping de la primera edición">
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ REGISTRO Y PAGO SPEI ══════════════ -->
+  <section id="registro" class="fondo-estrellas">
+    <div class="contenedor">
+      <h2 class="titulo-seccion">Únete a la Palomilla</h2>
+      <p class="subtitulo-seccion">Asegura tu lugar en la Edición Luna Llena y forma parte de la experiencia. Tu lugar queda reservado por 48 horas mientras confirmas tu asistencia.</p>
+
+      <form id="formularioRegistro" class="panel-registro">
+        <div class="campo-formulario">
+          <label for="nombreCompleto">Nombre completo</label>
+          <input type="text" id="nombreCompleto" name="nombreCompleto" required>
+        </div>
+
+        <div class="campo-formulario">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" required>
+        </div>
+
+        <div class="campo-formulario">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" required>
+        </div>
+
+        <div class="campo-formulario">
+          <label for="contactoEmergencia">Contacto de emergencia (nombre y teléfono)</label>
+          <input type="text" id="contactoEmergencia" name="contactoEmergencia" required>
+        </div>
+
+        <div class="campo-formulario">
+          <label for="paquete">Paquete</label>
+          <select id="paquete" name="paquete" required>
+            <option value="" disabled selected>Selecciona un paquete</option>
+            <option value="individual">Individual</option>
+            <option value="pareja">Pareja</option>
+            <option value="equipo">Equipo</option>
+          </select>
+        </div>
+
+        <div class="campo-formulario">
+          <label>¿Te quedas al after?</label>
+          <div class="opciones-after">
+            <label><input type="radio" name="seQuedaAlAfter" value="si" required> Sí</label>
+            <label><input type="radio" name="seQuedaAlAfter" value="no" required> No</label>
+          </div>
+        </div>
+
+        <p id="mensajeFormulario" class="mensaje-formulario" role="alert"></p>
+
+        <button type="submit" class="boton-dorado boton-ancho-completo">
+          <i class="bi bi-moon-stars"></i> Únete a la Palomilla
+        </button>
+      </form>
+
+      <div id="panelPago" class="panel-pago">
+        <i class="bi bi-stars icono-pago"></i>
+        <h3 id="tituloPanelPago">¡Ya casi eres parte de la palomilla!</h3>
+        <p class="subtitulo-seccion">Confirma tu lugar con tu aportación de corredor a través de transferencia interbancaria (SPEI):</p>
+
+        <div class="datos-spei">
+          <p><span>Banco</span><span>[Pendiente de confirmación]</span></p>
+          <p><span>A nombre de</span><span>[Pendiente de confirmación]</span></p>
+          <p><span>CLABE</span><span>[Pendiente de confirmación]</span></p>
+          <p><span>Folio de tu lugar</span><span id="referenciaPagoTexto">—</span></p>
+        </div>
+
+        <div class="aviso-vigencia">
+          <i class="bi bi-clock-history"></i>
+          Te enviamos un correo con los detalles de tu lugar reservado. Tienes 48 horas para confirmar tu aportación y quedar oficialmente dentro de la palomilla.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer-arf">
+    <div class="redes-footer">
+      <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      <a href="#" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+    </div>
+    <p>&copy; 2026 AdryRanch — Trail Nocturno La Paz, Edición Luna Llena. Todos los derechos reservados.</p>
+  </footer>
+
+  <button id="botonVolverArriba" class="boton-top" aria-label="Volver arriba">
+    <i class="bi bi-arrow-up-short"></i>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

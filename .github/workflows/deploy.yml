@@ -1,0 +1,36 @@
+name: Deploy AdryRanch (FTP)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy a producción vía FTP
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Sincronizar vía FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
+          protocol: ftps
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/.env
+            **/.env.example
+            **/knowledge/**
+            **/logs/**
+            **/backups/**
+            **/.claude/**
+            **/node_modules/**
+            **/api/test_conexiones.php
+            **/api/crear_usuarios_iniciales.php

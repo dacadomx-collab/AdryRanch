@@ -1,0 +1,366 @@
+/* =====================================================================
+   AdryRanch — Centro de Control (Dashboard administrativo)
+   dashboard.css — depende de las variables de css/main.css
+   ===================================================================== */
+
+.cuerpo-dashboard {
+  margin: 0;
+  min-height: 100vh;
+  /* Overhaul cromático BCS: el Dashboard usa terracota/rojo ocaso (logo.jpg)
+     en vez del dorado lunar institucional del sitio público. Al redefinir
+     estas variables aquí, todos los bordes, botones y focos del panel
+     (que ya usan var(--color-dorado*)) se recolorean automáticamente. */
+  --color-dorado: #d96b27;
+  --color-dorado-brillante: #f08a3c;
+  --color-dorado-suave: rgba(217, 107, 39, 0.2);
+  --sombra-dorada: 0 0 30px rgba(178, 59, 34, 0.35);
+}
+
+/* ── Pantalla de Login ──────────────────────────────────────────── */
+.pantalla-login {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/img/login2.jpg");
+  background-size: cover;
+  background-position: center;
+  z-index: 50;
+}
+
+.overlay-login {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 8, 20, 0.6) 0%, rgba(18, 27, 63, 0.72) 60%, rgba(5, 8, 20, 0.88) 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.tarjeta-login {
+  position: relative;
+  z-index: 1;
+  width: min(90vw, 380px);
+  background: rgba(18, 27, 63, 0.55);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(245, 197, 66, 0.3);
+  border-radius: var(--radio-base);
+  padding: clamp(1.8rem, 5vw, 2.5rem);
+  text-align: center;
+  box-shadow: var(--sombra-dorada);
+}
+
+.logo-tarjeta-login {
+  display: block;
+  width: auto;
+  height: clamp(70px, 12vw, 110px);
+  margin: 0 auto 1.1rem;
+  filter: drop-shadow(0 0 18px rgba(245, 197, 66, 0.4));
+}
+
+.tarjeta-login h1 {
+  font-size: 1.5rem;
+}
+
+.subtitulo-login {
+  color: var(--color-gris-arena);
+  font-size: 0.85rem;
+  margin: 0.3rem 0 1.5rem;
+}
+
+.tarjeta-login .campo-formulario {
+  text-align: left;
+}
+
+/* ── Layout general del Dashboard ──────────────────────────────── */
+.pantalla-dashboard {
+  display: none;
+  min-height: 100vh;
+  background-color: var(--color-azul-noche-deep);
+}
+
+.pantalla-dashboard.activa {
+  display: block;
+}
+
+.topbar-dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.5rem;
+  background: var(--color-azul-medianoche);
+  border-bottom: 1px solid rgba(245, 197, 66, 0.15);
+}
+
+.marca-topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.marca-topbar img {
+  height: 36px;
+}
+
+.marca-topbar span {
+  font-family: var(--font-titulos);
+  color: var(--color-dorado-brillante);
+}
+
+.usuario-topbar {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--color-blanco-luna);
+  font-size: 0.9rem;
+}
+
+.etiqueta-rol {
+  padding: 0.2rem 0.7rem;
+  border-radius: 50px;
+  border: 1px solid var(--color-dorado);
+  color: var(--color-dorado-brillante);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.navegacion-modulos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 1rem 1.5rem;
+  background: var(--color-azul-noche);
+}
+
+.boton-modulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: transparent;
+  border: 1px solid rgba(245, 197, 66, 0.25);
+  border-radius: 50px;
+  color: var(--color-gris-arena);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background var(--transicion-base), color var(--transicion-base);
+}
+
+.boton-modulo:hover {
+  color: var(--color-dorado-brillante);
+}
+
+.boton-modulo.activo {
+  background: var(--color-dorado-suave);
+  color: var(--color-dorado-brillante);
+  border-color: var(--color-dorado);
+}
+
+.contenido-dashboard {
+  padding: clamp(1.2rem, 4vw, 2.5rem);
+}
+
+.modulo-panel.oculto {
+  display: none;
+}
+
+.titulo-modulo {
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+/* ── Módulo D: Métricas ─────────────────────────────────────────── */
+.tarjeta-cuenta-regresiva {
+  background: var(--color-azul-medianoche);
+  border: 1px solid rgba(245, 197, 66, 0.2);
+  border-radius: var(--radio-base);
+  padding: 1.8rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.numero-cuenta-regresiva strong {
+  display: block;
+  font-family: var(--font-titulos);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--color-dorado-brillante);
+}
+
+.numero-cuenta-regresiva span {
+  color: var(--color-gris-arena);
+  font-size: 0.9rem;
+}
+
+.fecha-evento-texto {
+  margin: 0.6rem 0 0;
+  color: var(--color-blanco-luna);
+}
+
+.estadisticas-rapidas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.metrica-rapida {
+  flex: 1 1 180px;
+  background: var(--color-azul-medianoche);
+  border: 1px solid rgba(245, 197, 66, 0.15);
+  border-top: 3px solid var(--color-terracota);
+  border-radius: var(--radio-base);
+  padding: 1.2rem;
+  text-align: center;
+}
+
+.metrica-rapida i {
+  font-size: 1.6rem;
+  color: var(--color-dorado-brillante);
+}
+
+.metrica-rapida span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-gris-arena);
+  margin: 0.4rem 0;
+}
+
+.metrica-rapida strong {
+  font-size: 1.6rem;
+  color: var(--color-blanco-luna);
+}
+
+/* ── Tablas responsivas (Módulo A / Módulo C) ──────────────────── */
+.tabla-responsiva {
+  overflow-x: auto;
+  border-radius: var(--radio-base);
+  border: 1px solid rgba(245, 197, 66, 0.15);
+}
+
+.tabla-dashboard {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+}
+
+.tabla-dashboard th,
+.tabla-dashboard td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-size: 0.88rem;
+  border-bottom: 1px solid rgba(245, 197, 66, 0.1);
+  color: var(--color-blanco-luna);
+}
+
+.tabla-dashboard th {
+  background: var(--color-azul-medianoche);
+  color: var(--color-dorado-brillante);
+  font-weight: 600;
+}
+
+.insignia-estatus {
+  padding: 0.25rem 0.7rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.insignia-estatus.confirmado {
+  background: rgba(245, 197, 66, 0.18);
+  color: var(--color-dorado-brillante);
+}
+
+.insignia-estatus.en-revision {
+  background: rgba(193, 80, 46, 0.18);
+  color: var(--color-atardecer);
+}
+
+.boton-confirmar-fila {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.78rem;
+  background: var(--color-dorado-suave);
+  border: 1px solid var(--color-dorado);
+  border-radius: 50px;
+  color: var(--color-dorado-brillante);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ── Módulo B: Tablero de Tareas ────────────────────────────────── */
+.formulario-tarea {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-bottom: 1.5rem;
+}
+
+.formulario-tarea input,
+.formulario-tarea select {
+  flex: 1 1 160px;
+  padding: 0.7rem 0.9rem;
+  background: var(--color-azul-medianoche);
+  border: 1px solid rgba(245, 197, 66, 0.25);
+  border-radius: 8px;
+  color: var(--color-blanco-luna);
+  font-family: var(--font-cuerpo);
+}
+
+.tablero-tareas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.columna-tareas {
+  flex: 1 1 260px;
+  background: var(--color-azul-medianoche);
+  border-radius: var(--radio-base);
+  border: 1px solid rgba(245, 197, 66, 0.15);
+  padding: 1rem;
+}
+
+.columna-tareas h3 {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: var(--color-dorado-brillante);
+}
+
+.tarjeta-tarea {
+  background: var(--color-azul-noche-deep);
+  border: 1px solid rgba(245, 197, 66, 0.12);
+  border-radius: 10px;
+  padding: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.tarjeta-tarea h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+
+.tarjeta-tarea p {
+  font-size: 0.8rem;
+  color: var(--color-gris-arena);
+  margin: 0 0 0.5rem;
+}
+
+.tarjeta-tarea .meta-tarea {
+  font-size: 0.74rem;
+  color: var(--color-gris-arena);
+  margin-bottom: 0.6rem;
+}
+
+.tarjeta-tarea select {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  background: var(--color-azul-medianoche);
+  border: 1px solid rgba(245, 197, 66, 0.25);
+  border-radius: 6px;
+  color: var(--color-blanco-luna);
+  font-size: 0.8rem;
+}
+
+/* ── Módulo C: panel compacto ────────────────────────────────────── */
+.panel-registro-compacto {
+  max-width: 480px;
+  margin: 0 0 1.8rem;
+}

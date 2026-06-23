@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="gradCraneo" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffd95e"/>
+      <stop offset="100%" stop-color="#f5c542"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#gradCraneo)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Cuernos -->
+    <path d="M30 70 C10 55, 5 25, 22 10 C28 28, 30 45, 38 62" />
+    <path d="M170 70 C190 55, 195 25, 178 10 C172 28, 170 45, 162 62" />
+    <!-- Cráneo -->
+    <path d="M52 60 C40 75, 36 100, 46 122 C54 140, 76 152, 100 154 C124 152, 146 140, 154 122 C164 100, 160 75, 148 60 C132 44, 116 38, 100 38 C84 38, 68 44, 52 60 Z" />
+    <!-- Cuencas de los ojos -->
+    <circle cx="74" cy="92" r="11" />
+    <circle cx="126" cy="92" r="11" />
+    <!-- Cavidad nasal -->
+    <path d="M88 118 L84 138 C84 146, 92 150, 100 150 C108 150, 116 146, 116 138 L112 118 Z" />
+    <!-- Línea central -->
+    <path d="M100 60 L100 118" />
+  </g>
+</svg>
