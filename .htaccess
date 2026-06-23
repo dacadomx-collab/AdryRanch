@@ -1,19 +1,14 @@
 # ═══════════════════════════════════════════════════════════════
-# LOVER LIPS YACHTS — .htaccess CONSOLIDADO (ACCESIBLE + BLINDADO)
-# index.php es el gatekeeper server-side real — index.html quedó
-# retirado (ver index.html, ahora un stub inerte).
+# ADRYRANCH — .htaccess OFICIAL (API CONFIGURADA + BLINDADO)
 # ═══════════════════════════════════════════════════════════════
 
-DirectoryIndex index.php
+DirectoryIndex index.html index.php
 Options -Indexes
 
-# Línea base: el hosting de tourfindy.com deniega por defecto a nivel de
-# servidor si esta línea falta — sin ella, hasta los archivos públicos
-# (CSS, JS, imágenes, book.html) devuelven 403. Las reglas más específicas
-# abajo (.php, dotfiles, carpetas sensibles) siguen ganando sobre esta.
+# Permiso base para archivos estáticos públicos del ecosistema
 Require all granted
 
-# ── Bloqueo de archivos ocultos y de configuración ──────────────
+# ── Bloqueo de archivos ocultos y de configuración de base ───────
 <FilesMatch "^\.">
     Require all denied
 </FilesMatch>
@@ -21,47 +16,43 @@ Require all granted
     Require all denied
 </FilesMatch>
 
-# ── Bloqueo de carpetas estructurales/sensibles completas ───────
+# ── Bloqueo estricto de carpetas estructurales y de control ─────
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteRule ^knowledge(/.*)?$ - [F,L]
     RewriteRule ^core(/.*)?$      - [F,L]
-    RewriteRule ^sql(/.*)?$       - [F,L]
     RewriteRule ^\.git            - [F,L]
     RewriteRule ^\.github         - [F,L]
 </IfModule>
 
-# ── PHP denegado por defecto. dashboard.php y api/conexion.php no
-#    aparecen en las excepciones a propósito: solo deben ejecutarse
-#    vía require()/include(), nunca por URL directa. ───────────────
+# ── Protección de PHP por defecto ───────────────────────────────
 <FilesMatch "\.php$">
     Require all denied
 </FilesMatch>
 
-<FilesMatch "^(index|login|strategy)\.php$">
+# ── EXCEPCIONES: Endpoints autorizados para correr en el servidor ──
+# Permitimos index, login y absolutamente todo lo que viva en la carpeta /api/
+<FilesMatch "^(index|login)\.php$">
     Require all granted
 </FilesMatch>
 
-# ── Excepción autorizada: endpoints de /api/ (AdryRanch, 2026-06-22) ──
-# Único punto de entrada HTTP al backend PHP (api/registro.php, etc.).
-# api/conexion.php sigue protegido por convención: solo se invoca vía
-# require_once desde otro endpoint de /api/, nunca por URL directa.
-# La fusión de "Require" de Apache 2.4 es OR por defecto: esta excepción
-# se suma a la denegación general de arriba sin reemplazarla.
-SetEnvIf Request_URI "/api/.*\.php$" API_PHP=1
-<FilesMatch "\.php$">
-    Require env API_PHP
-</FilesMatch>
+# Habilitar acceso de ejecución exclusivo a los endpoints de nuestra API
+# Sin "^" al inicio: en local XAMPP la URI real es /AdryRanch/api/...
+# (subcarpeta), mientras que en producción el docroot ya es la carpeta
+# del proyecto y la URI es /api/... — esta forma cubre ambos casos.
+<If "%{REQUEST_URI} =~ m#/api/.*\.php$#">
+    Require all granted
+</If>
 
-# ── Headers de seguridad ─────────────────────────────────────────
+# ── Headers de seguridad Nivel Militar (Mandamiento 2) ───────────
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options "nosniff"
-    Header always set X-Frame-Options "DENY"
+    Header always set X-Frame-Options "SAMEORIGIN"
     Header always set X-XSS-Protection "1; mode=block"
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
     Header always unset X-Powered-By
     Header always unset Server
 </IfModule>
 
-ErrorDocument 403 "Acceso denegado."
+ErrorDocument 403 "Acceso denegado perimetral — AdryRanch."
 ErrorDocument 404 "Recurso no encontrado."

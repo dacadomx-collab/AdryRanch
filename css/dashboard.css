@@ -16,6 +16,27 @@
   --sombra-dorada: 0 0 30px rgba(178, 59, 34, 0.35);
 }
 
+/* ── Conmutador de Iluminación INTERNO del Dashboard ────────────────
+   Independiente del modo Day/Night del sitio público (clave de
+   localStorage distinta). Redefine las mismas variables, ahora
+   sobre #pantallaDashboard, para un modo claro "broken white" con
+   tipografía oscura de alto contraste (legible bajo el sol de BCS). */
+.pantalla-dashboard.dashboard-light-mode {
+  --color-azul-noche: #eef1f5;
+  --color-azul-noche-deep: #f8fafc;
+  --color-azul-medianoche: #ffffff;
+  --color-dorado: #b8501c;
+  --color-dorado-brillante: #d96b27;
+  --color-dorado-suave: rgba(184, 80, 28, 0.12);
+  --color-blanco-luna: #1f2430;
+  --color-gris-arena: #5b6472;
+  --sombra-dorada: 0 0 16px rgba(184, 80, 28, 0.18);
+}
+
+.pantalla-dashboard.dashboard-light-mode .topbar-dashboard {
+  border-color: rgba(184, 80, 28, 0.15);
+}
+
 /* ── Pantalla de Login ──────────────────────────────────────────── */
 .pantalla-login {
   position: fixed;
@@ -99,7 +120,10 @@
 }
 
 .marca-topbar img {
-  height: 36px;
+  height: clamp(44px, 6vw, 58px);
+  width: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 14px rgba(217, 107, 39, 0.45);
 }
 
 .marca-topbar span {

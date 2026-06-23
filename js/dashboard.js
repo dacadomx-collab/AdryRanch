@@ -14,8 +14,39 @@ document.addEventListener("DOMContentLoaded", function () {
   inicializarLogout();
   inicializarFormularioTarea();
   inicializarFormularioUsuario();
+  inicializarModoIluminacionDashboard();
   verificarSesionExistente();
 });
+
+/* ── Conmutador de Iluminación interno del Dashboard ───────────────────
+   Independiente del modo Day/Night del sitio público: clave de
+   localStorage propia y clase aplicada solo sobre #pantallaDashboard.
+   ───────────────────────────────────────────────────────────────────── */
+const CLAVE_MODO_DASHBOARD = "adryranch_dashboard_modo_iluminacion";
+
+function inicializarModoIluminacionDashboard() {
+  const boton = document.getElementById("botonModoIluminacionDashboard");
+  const contenedor = document.getElementById("pantallaDashboard");
+  if (!boton || !contenedor) return;
+
+  const iconoSol = boton.querySelector(".icono-modo-sol");
+  const iconoLuna = boton.querySelector(".icono-modo-luna");
+
+  function aplicarModo(modo) {
+    contenedor.classList.toggle("dashboard-light-mode", modo === "claro");
+    iconoSol.classList.toggle("oculto", modo === "claro");
+    iconoLuna.classList.toggle("oculto", modo !== "claro");
+  }
+
+  aplicarModo(localStorage.getItem(CLAVE_MODO_DASHBOARD) || "oscuro");
+
+  boton.addEventListener("click", function () {
+    const modoActual = contenedor.classList.contains("dashboard-light-mode") ? "claro" : "oscuro";
+    const modoNuevo = modoActual === "claro" ? "oscuro" : "claro";
+    localStorage.setItem(CLAVE_MODO_DASHBOARD, modoNuevo);
+    aplicarModo(modoNuevo);
+  });
+}
 
 /* ── Utilidades ─────────────────────────────────────────────────────── */
 function mostrarMensaje(elemento, texto, tipo) {
