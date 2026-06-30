@@ -24,18 +24,18 @@
 
   <!-- ══════════════ NAVBAR ══════════════ -->
   <nav class="navbar-arf">
-    <a href="#inicio" class="navbar-marca">
+    <a href="#invitacion" class="navbar-marca">
       <img src="assets/img/logo.jpg" alt="AdryRanch — Trail Nocturno La Paz">
       <span>AdryRanch</span>
     </a>
 
     <div class="navbar-derecha">
       <ul class="navbar-links">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#experiencia">Experiencia Nocturna</a></li>
+        <li><a href="#antecedentes">Antecedentes</a></li>
+        <li><a href="#invitacion">Invitación</a></li>
+        <li><a href="#kit">Kit</a></li>
         <li><a href="#ruta">Ruta</a></li>
-        <li><a href="#kit">Kit del Corredor</a></li>
-        <li><a href="#ediciones-anteriores">Ediciones Anteriores</a></li>
+        <li><a href="#after">El After</a></li>
         <li><a href="dashboard/index.html"><i class="bi bi-lock-fill"></i> Acceso Admin</a></li>
         <li><a href="#registro" class="boton-dorado">Regístrate</a></li>
       </ul>
@@ -53,8 +53,8 @@
     </div>
   </nav>
 
-  <!-- ══════════════ HERO ══════════════ -->
-  <header id="inicio" class="hero-trail">
+  <!-- ══════════════ INVITACIÓN (HERO) ══════════════ -->
+  <header id="invitacion" class="hero-trail">
     <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-poster.jpg">
       <source src="assets/img/hero-video-optimizado.mp4" type="video/mp4">
     </video>
@@ -62,7 +62,7 @@
 
     <div class="hero-contenido">
       <span class="hero-edicion"><i class="bi bi-moon-stars-fill"></i> Edición Luna Llena</span>
-      <h1>Trail Nocturno La Paz</h1>
+      <h1>TRAIL NOCTURNO ADRIRANCH</h1>
       <p class="hero-eslogan">"Corre bajo la luz de la luna, quédate bajo las estrellas."</p>
 
       <div class="hero-meta">
@@ -76,37 +76,68 @@
     </div>
   </header>
 
-  <!-- ══════════════ EXPERIENCIA NOCTURNA ══════════════ -->
-  <section id="experiencia" class="fondo-estrellas">
+  <!-- ══════════════ ANTECEDENTES (PRUEBA SOCIAL) ══════════════ -->
+  <section id="antecedentes">
     <div class="contenedor">
-      <h2 class="titulo-seccion">Experiencia Nocturna</h2>
-      <p class="subtitulo-seccion">Una carrera pensada para vivirse en comunidad, bajo el cielo estrellado del desierto paceño.</p>
+      <h2 class="titulo-seccion">Antecedente de la Carrera Anterior</h2>
+      <p class="subtitulo-seccion">La primera noche bajo la luna que le dio origen a esta tradición. Así vivimos la primera edición del Trail aDRYrANCH: la palomilla, el desierto y la Playa como testigos.</p>
 
-      <div class="tarjetas-experiencia">
-        <div class="tarjeta-experiencia">
-          <i class="bi bi-lightbulb icono-experiencia"></i>
-          <h3>Estacas Solares</h3>
-          <p>Todo el recorrido iluminado con estacas solares que marcan el sendero bajo la luna llena.</p>
+      <div id="galeriaEdicionAnterior" class="galeria-arf-grid">
+        <img src="assets/img/FB_IMG_1781149844849.jpg" alt="Trail aDRYrANCH — primera edición" class="foto-lightbox" tabindex="0">
+        <img src="assets/img/FB_IMG_1781480390031.jpg" alt="Corredores en la primera edición" class="foto-lightbox" tabindex="0">
+        <img src="assets/img/FB_IMG_1781563439123.jpg" alt="Ambiente de la carrera" class="foto-lightbox" tabindex="0">
+        <img src="assets/img/FB_IMG_1781563572007.jpg" alt="La palomilla en el desierto" class="foto-lightbox" tabindex="0">
+      </div>
+      
+      <div class="spotify-container">
+        <span class="spotify-badge"><i class="bi bi-lightning-charge-fill"></i> AC/DC MODE ACTIVATED</span>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX6P5zAAk1k2l?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════ KIT DEL CORREDOR (ARF-GRID) ══════════════ -->
+  <section id="kit" class="fondo-estrellas">
+    <div class="contenedor">
+      <h2 class="titulo-seccion">Kit del Corredor</h2>
+      <p class="subtitulo-seccion">Tu inscripción a la EXPERIENCIA NOCTURNA te da acceso a todo lo necesario para disfrutar la RUTA.</p>
+
+      <div class="arf-grid">
+        <div class="arf-item">
+          <i class="bi bi-123"></i>
+          <h4>Número de Corredor</h4>
+          <p>Tu identificación oficial en la ruta.</p>
         </div>
-        <div class="tarjeta-experiencia">
-          <i class="bi bi-house-heart icono-experiencia"></i>
-          <h3>Área de Descanso</h3>
-          <p>Zonas de descanso con mallasombra y banquitas para convivir con la palomilla antes y después de correr.</p>
+        <div class="arf-item">
+          <i class="bi bi-stars"></i>
+          <h4>Luces de Neón</h4>
+          <p>Kit luminoso de regalo para brillar en la oscuridad.</p>
         </div>
-        <div class="tarjeta-experiencia">
-          <i class="bi bi-cup-straw icono-experiencia"></i>
-          <h3>Camping y After</h3>
-          <p>Te invitamos a quedarte a acampar bajo las estrellas y cerrar la noche con la cervecita del after.</p>
+        <div class="arf-item">
+          <i class="bi bi-droplet-half"></i>
+          <h4>Hidratación en Ruta</h4>
+          <p>Puntos de abastecimiento con agua y electrolitos.</p>
+        </div>
+        <div class="arf-item">
+          <i class="bi bi-apple"></i>
+          <h4>Fruta de Ruta</h4>
+          <p>Naranjas y plátanos para recargar energía.</p>
+        </div>
+        <div class="arf-item">
+          <i class="bi bi-question-circle"></i>
+          <h4>¿Medalla o Visera?</h4>
+          <p>¡O ambas! Sorpresa conmemorativa por confirmar.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════ RUTAS Y KILOMETRAJES ══════════════ -->
+  <!-- ══════════════ RUTA Y KILOMETRAJES ══════════════ -->
   <section id="ruta">
     <div class="contenedor">
-      <h2 class="titulo-seccion">Rutas y Kilometrajes</h2>
-      <p class="subtitulo-seccion">Descarga el track oficial de la ruta y prepárate para recorrer el desierto bajo la luna.</p>
+      <h2 class="titulo-seccion">La Ruta</h2>
+      <p class="subtitulo-seccion">Descarga el track oficial y prepárate para recorrer el desierto bajo la luna.</p>
 
       <div class="bloque-ruta">
         <div class="mapa-ruta">
@@ -117,112 +148,38 @@
 
         <div class="descargas-ruta">
           <h3>Descarga tu ruta</h3>
-          <p class="texto-descarga-ruta">Track optimizado para llevar en tu reloj o celular durante la carrera.</p>
+          <p class="texto-descarga-ruta">Track optimizado para llevar en tu reloj o celular durante el recorrido.</p>
           <div class="botones-descarga">
             <a href="#" class="boton-contorno deshabilitado" aria-disabled="true">
-              <i class="bi bi-apple"></i> Ruta para iPhone
+              <i class="bi bi-universal-access"></i> Ruta GPX
             </a>
             <a href="#" class="boton-contorno deshabilitado" aria-disabled="true">
-              <i class="bi bi-android2"></i> Ruta para Android
+              <i class="bi bi-geo-alt-fill"></i> Ruta KML
             </a>
           </div>
-          <span class="etiqueta-proximamente">Disponible próximamente.</span>
+          <p class="nota-ruta"><i class="bi bi-camera-video"></i> Próximamente subiremos fotos y videos reales de la RUTA con las estacas solares encendidas para que la conozcas.</p>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ══════════════ KIT DEL CORREDOR (ARF-GRID) ══════════════ -->
-  <section id="kit" class="fondo-estrellas">
+  
+  <!-- ══════════════ QUÉDATE AL AFTER ══════════════ -->
+  <section id="after" class="fondo-estrellas">
     <div class="contenedor">
-      <h2 class="titulo-seccion">Kit del Corredor</h2>
-      <p class="subtitulo-seccion">Todo lo que recibes al inscribirte a la Edición Luna Llena.</p>
-
-      <div class="arf-grid">
-        <div class="arf-item">
-          <i class="bi bi-123"></i>
-          <h4>Número de Corredor</h4>
-          <p>Tu número oficial para la carrera.</p>
-        </div>
-        <div class="arf-item">
-          <i class="bi bi-droplet-half"></i>
-          <h4>Hidratación en Ruta</h4>
-          <p>Puntos de hidratación a lo largo del recorrido.</p>
-        </div>
-        <div class="arf-item">
-          <i class="bi bi-stars"></i>
-          <h4>Luces de Neón</h4>
-          <p>Luces de regalo para brillar bajo la luna llena.</p>
-        </div>
-        <div class="arf-item">
-          <i class="bi bi-award"></i>
-          <h4>Medalla de Finalista</h4>
-          <p>Medalla conmemorativa al cruzar la meta.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════ EDICIONES ANTERIORES ══════════════ -->
-  <section id="ediciones-anteriores">
-    <div class="contenedor">
-      <h2 class="titulo-seccion">Ediciones Anteriores</h2>
-      <p class="subtitulo-seccion">La primera noche bajo la luna que le dio origen a esta tradición.</p>
-
-      <div class="panel-edicion-anterior">
-        <div class="contenido-edicion-anterior">
-          <p>Así vivimos la primera edición del Trail aDRYrANCH: la palomilla, el desierto y la Playa como testigos.</p>
-
-          <div class="estadisticas-edicion">
-            <div class="estadistica-item">
-              <i class="bi bi-calendar-event"></i>
-              <span>Fecha</span>
-              <strong>14 de junio de 2026</strong>
-            </div>
-            <div class="estadistica-item">
-              <i class="bi bi-clock"></i>
-              <span>Hora de Arranque</span>
-              <strong>6:30 am</strong>
-            </div>
-            <div class="estadistica-item">
-              <i class="bi bi-geo-alt"></i>
-              <span>Lugar</span>
-              <strong>AdryRanch (GPS Pendiente)</strong>
-            </div>
-            <div class="estadistica-item">
-              <i class="bi bi-signpost-split"></i>
-              <span>Ruta</span>
-              <strong>Pendiente</strong>
-            </div>
-            <div class="estadistica-item">
-              <i class="bi bi-rulers"></i>
-              <span>Kilometraje</span>
-              <strong>De 6 a 8 km</strong>
-            </div>
-            <div class="estadistica-item">
-              <i class="bi bi-people"></i>
-              <span>Participantes</span>
-              <strong>Palomilla de 35 Corredores Trail</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div id="galeriaEdicionAnterior" class="galeria-arf-grid">
-        <img src="assets/img/FB_IMG_1781149844849.jpg" alt="Trail aDRYrANCH — primera edición" class="foto-lightbox" tabindex="0">
-        <img src="assets/img/FB_IMG_1781480390031.jpg" alt="Corredores en la primera edición" class="foto-lightbox" tabindex="0">
-        <img src="assets/img/FB_IMG_1781563439123.jpg" alt="Ambiente de la carrera" class="foto-lightbox" tabindex="0">
-        <img src="assets/img/FB_IMG_1781563572007.jpg" alt="La palomilla en el desierto" class="foto-lightbox" tabindex="0">
-        <img src="assets/img/FB_IMG_1781564238790.jpg" alt="Corriendo en la Playa" class="foto-lightbox" tabindex="0">
-        <img src="assets/img/FB_IMG_1781753217060.jpg" alt="Meta de la primera edición" class="foto-lightbox" tabindex="0">
+      <h2 class="titulo-seccion">Quédate al After</h2>
+      <p class="subtitulo-seccion">La EXPERIENCIA NOCTURNA no termina en la meta. Te invitamos a acampar y cerrar la noche con la convivencia de la palomilla junto a la fogata.</p>
+      
+      <div class="galeria-arf-grid">
         <img src="assets/img/IMG-20260614-WA0005.jpg" alt="Convivencia post carrera" class="foto-lightbox" tabindex="0">
         <img src="assets/img/IMG-20260618-WA0027.jpg" alt="Camping de la primera edición" class="foto-lightbox" tabindex="0">
+        <img src="assets/img/20260602_142735.jpg" alt="Fogata en el campamento" class="foto-lightbox" tabindex="0">
+        <img src="assets/img/IMG-20260614-WA0091.jpg" alt="Palomilla reunida" class="foto-lightbox" tabindex="0">
       </div>
     </div>
   </section>
 
   <!-- ══════════════ REGISTRO Y PAGO SPEI ══════════════ -->
-  <section id="registro" class="fondo-estrellas">
+  <section id="registro">
     <div class="contenedor">
       <h2 class="titulo-seccion">Únete a la Palomilla</h2>
       <p class="subtitulo-seccion">Asegura tu lugar en la Edición Luna Llena y forma parte de la experiencia. Tu lugar queda reservado por 48 horas mientras confirmas tu asistencia.</p>

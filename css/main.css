@@ -4,6 +4,31 @@
    Paleta: Azul Oscuro (noche del desierto) + Dorado (Luna Llena)
    ===================================================================== */
 
+   /* Soporte para la sección del After y adecuación ARF-Grid */
+#after {
+  padding: 6rem 0;
+  position: relative;
+}
+
+.galeria-after-grid {
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.panel-after-info {
+  background: var(--color-azul-medianoche, #121b3f);
+  border: 1px solid var(--color-dorado, #f5c542);
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.panel-after-info:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(217, 107, 39, 0.2); /* Resplandor terracota de ALISER */
+}
+
 :root {
   /* Paleta institucional — Noche Mística */
   --color-azul-noche: #0a1128;
@@ -917,4 +942,62 @@ section {
 
 .footer-arf .redes-footer a:hover {
   opacity: 0.7;
+}
+
+/* ══════════════ ESTILOS DE CONSOLIDACIÓN FINAL ══════════════ */
+
+/* ── Nota en la sección de Ruta ─────────────────────────────────── */
+.nota-ruta {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  text-align: left;
+  color: var(--color-gris-arena);
+  background: var(--color-dorado-suave);
+  border-left: 3px solid var(--color-dorado);
+  border-radius: 0 8px 8px 0;
+}
+
+.nota-ruta i {
+  margin-right: 0.5rem;
+  color: var(--color-dorado-brillante);
+}
+
+/* ── Contenedor de Spotify (Regla de Oro: sin inline styles) ───── */
+.spotify-container {
+  max-width: 720px;
+  margin: 3rem auto 0;
+  text-align: center;
+}
+
+.spotify-badge {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  background-color: var(--color-rojo-ocaso);
+  color: var(--color-blanco-luna);
+  font-family: var(--font-titulos);
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.wrapper-spotify {
+  position: relative;
+  /* Aspect-ratio 100/352 para el reproductor de Spotify */
+  padding-bottom: 35.22%; 
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.wrapper-spotify iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
